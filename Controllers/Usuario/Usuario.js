@@ -1,6 +1,5 @@
 // Importamos el modelo de "Estudiantes" para interactuar con la base de datos
 const Usuario = require("../../Models/Usuario/Usuario");
-const UsuarioEdit  = require("../../Models/Usuario/UsuarioEdit");
 
 exports.ObtenerUsuarios = async (req,res)=>{
     const usuarios = await Usuario.find();
@@ -51,7 +50,7 @@ exports.ActualizarUsuarioPorCorreoParams = async (req,res)=>{
         const nuevosDatos = req.body;
 
         // Actualizamos el estudiante
-        const actualizacion = await UsuarioEdit.updateOne(
+        const actualizacion = await Usuario.updateOne(
             {"correo": correo},
             {$set: nuevosDatos}
         );
