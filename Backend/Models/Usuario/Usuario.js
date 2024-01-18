@@ -1,8 +1,7 @@
 // Importamos mongoose
 const mongoose = require('mongoose');
 
-/* Definimos el esquema de datos */
-// Para definir un esquema se utiliza el constructor Schema de mongoose y la palabra reservada new.
+
 const usuarioEsquema = new mongoose.Schema({
     nombre:{
         type: String,
@@ -43,16 +42,46 @@ const usuarioEsquema = new mongoose.Schema({
     fecha_modificacion:{
         type: Date,
         default: Date.now
-    }
+    },
 });
 
+// Método para validar el nombre con una expresión regular sencilla
+usuarioEsquema.methods.validarNombre = function() {
+    const expresionRegularNombre = /^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]{1,}(?:[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]{0,}[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ]){0,4}$/;
+    return expresionRegularNombre.test(this.nombre);
+};
 
-/* Definimos el modelo de datos */
-// Para crear un modelo se utiliza el metodo model() de mongoose.
+usuarioEsquema.methods.validarApellido = function() {
+    const expresionRegularApellido = /^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]{1,}(?:[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]{0,}[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ]){0,4}$/;
+    return expresionRegularApellido.test(this.apellido);
+};
 
-// Estructura del modelo:    "NombreDeColeccion", "Esquema"
+usuarioEsquema.methods.validarEdad = function() {
+    const expresionRegularEdad = /^[0-9]{1,3}$/;
+    return expresionRegularEdad.test(this.edad);
+};
+
+usuarioEsquema.methods.validarCiudad = function() {
+    const expresionRegularCiudad = /^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]{1,}(?:[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]{0,}[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ]){0,4}$/;
+    return expresionRegularCiudad.test(this.ciudad);
+};
+
+usuarioEsquema.methods.validarPais = function() {
+    const expresionRegularPais = /^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]{1,}(?:[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]{0,}[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ]){0,4}$/;
+    return expresionRegularPais.test(this.pais);
+};
+
+usuarioEsquema.methods.validarCorreo = function() {
+    const expresionRegularCorreo = /^[a-zA-Z0-9_.]+@[a-zA-Z0-9_.-]+\.[a-zA-Z]{2,6}$/;
+    return expresionRegularCorreo.test(this.correo);
+}
+
+usuarioEsquema.methods.validarContraseña = function() {
+    const expresionRegularContraseña = /^[a-zA-Z0-9*_.\-()]+$/;
+    return expresionRegularContraseña.test(this.contraseña);
+}
+
+
 const Usuario = mongoose.model("usuarios", usuarioEsquema);
 
-
-// Exportamos el modelo para utilizarlo donde sea requerido
 module.exports = Usuario;
