@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const productoEsquema = new mongoose.Schema({
+const vehiculoEsquema = new mongoose.Schema({
     fecha_registro: {
         type: Date,
         default: Date.now
@@ -121,6 +121,6 @@ const productoEsquema = new mongoose.Schema({
 });
 
 
-const Producto = mongoose.model("productos", productoEsquema);
+const Vehiculo = mongoose.model("vehiculos", vehiculoEsquema);
 
-module.exports = Producto;
+module.exports = Vehiculo;

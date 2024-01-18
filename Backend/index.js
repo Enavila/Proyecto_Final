@@ -8,17 +8,17 @@ const app = express();
 const puerto = process.env.PORT;
 const baseDeDatos = process.env.MONGODB_URI;
 
-const rutaGetUsuarios = require("./Routes/Usuario/UsuariosGetAll");
+const rutaGetUsuarios = require("./Routes/Usuario/UsuariosGet");
 const rutaGetUsuario = require("./Routes/Usuario/UsuarioGet");
 const rutaPostUsuario = require("./Routes/Usuario/UsuarioPost");
 const rutaPatchUsuario = require("./Routes/Usuario/UsuarioPatch");
 const rutaDeleteUsuario = require("./Routes/Usuario/UsuarioDelete");
 
-const rutaGetProductos = require("./Routes/Producto/ProductosGet");
-const rutaGetProducto = require("./Routes/Producto/ProductoGet");
-const rutaPostProducto = require("./Routes/Producto/ProductoPost");
-const rutaPatchProducto = require("./Routes/Producto/ProductoPatch");
-const rutaDeleteProducto = require("./Routes/Producto/ProductoDelete");
+const rutaGetVehiculos = require("./Routes/Vehiculo/VehiculosGet");
+const rutaGetVehiculo = require("./Routes/Vehiculo/VehiculoGet");
+const rutaPostVehiculo = require("./Routes/Vehiculo/VehiculoPost");
+const rutaPatchVehiculo = require("./Routes/Vehiculo/VehiculoPatch");
+const rutaDeleteVehiculo = require("./Routes/Vehiculo/VehiculoDelete");
 
 
 async function conectarBD(URI){
@@ -36,11 +36,11 @@ app.use(
     rutaPostUsuario,
     rutaPatchUsuario,
     rutaDeleteUsuario,
-    rutaGetProductos,
-    rutaGetProducto,
-    rutaPostProducto,
-    rutaPatchProducto,
-    rutaDeleteProducto
+    rutaGetVehiculos,
+    rutaGetVehiculo,
+    rutaPostVehiculo,
+    rutaPatchVehiculo,
+    rutaDeleteVehiculo
 );
 
 app.get("/", (req, res)=>{
