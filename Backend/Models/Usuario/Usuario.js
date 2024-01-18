@@ -18,7 +18,6 @@ const usuarioEsquema = new mongoose.Schema({
     },
     ciudad:{
         type: String,
-        required: false,
         default: "s/i"
     },
     pais:{

@@ -1,3 +1,4 @@
+// Importamos mongoose
 const mongoose = require('mongoose');
 
 const productoEsquema = new mongoose.Schema({
@@ -10,43 +11,39 @@ const productoEsquema = new mongoose.Schema({
         default: Date.now
     },
     foto: {
-        type: String,
-        required: true
+        type: String
     },
     precio: {
-        type: Number,
-        required: true
+        type: Number
     },
     marca: {
-        type: String,
-        required: true
+        type: String
     },
     modelo: {
-        type: String,
-        required: true
+        type: String
     },
     anio: {
-        type: Number,
-        required: true
+        type: Number
     },
     color: {
-        type: String,
-        required: true
+        type: String
     },
     tipo_carroceria: {
         type: String,
         default: "sin información"
     },
     motor: {
-        tipo_motor: {
+        tipo: {
             type: String,
             default: "sin información"
         },
         cilindrada: {
             type: Number,
+            default: "sin información"
         },
         potencia_hp: {
             type: Number,
+            default: "sin información"
         }
     },
     transmision: {
@@ -59,62 +56,72 @@ const productoEsquema = new mongoose.Schema({
     },
     numero_puertas: {
         type: Number,
+        default: "sin información"
     },
     capacidad_pasajeros: {
         type: Number,
+        default: "sin información"
     },
     kilometraje: {
         type: Number,
+        default: "sin información"
     },
     sistema_frenos: {
         type: String,
         default: "sin información"
     },
-    bolsas_de_aire: {
+    airbags: {
         type: Number,
+        default: "sin información"
     },
     sistema_entretenimiento: {
         pantalla_tactil: {
-            type: String,
+            type: Boolean,
             default: "sin información"
         },
         navegacion_gps: {
-            type: String,
+            type: Boolean,
             default: "sin información"
         },
-        bluetooth: {
-            type: String,
+        conectividad_bluetooth: {
+            type: Boolean,
             default: "sin información"
         }
     },
     aire_acondicionado: {
-        type: String,
+        type: Boolean,
         default: "sin información"
     },
-    tipo_asientos: {
+    asientos_tipo: {
         type: String,
         default: "sin información"
     },
     dimensiones: {
         longitud_mm: {
             type: Number,
+            default: "sin información"
         },
         ancho_mm: {
             type: Number,
+            default: "sin información"
         },
         altura_mm: {
             type: Number,
+            default: "sin información"
         }
     },
     peso_kg: {
         type: Number,
+        default: "sin información"
     },
     consumo_combustible: {
         ciudad_kmpl: {
             type: Number,
+            default: "sin información"
         },
         carretera_kmpl: {
             type: Number,
+            default: "sin información"
         }
     },
 
@@ -124,3 +131,4 @@ const productoEsquema = new mongoose.Schema({
 const Producto = mongoose.model("productos", productoEsquema);
 
 module.exports = Producto;
+

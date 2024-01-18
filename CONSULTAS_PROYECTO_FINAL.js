@@ -1,6 +1,6 @@
 /*
 // Nombre de la colección
-const collectionName = 'usuarios';
+const collectionName = 'productos';
 
 // Opciones de la colección, incluyendo índices
 const collectionOptions = {
@@ -56,11 +56,7 @@ const collectionOptions = {
 
 
   // Crea la colección con las opciones definidas
-  db.createCollection(collectionName, collectionOptions, (err, res) => {
-    if (err) throw err;
-    console.log('Colección creada con éxito.');
-    client.close();
-  });
+  db.createCollection(collectionName, collectionOptions)
 
   // especifica cuales campos van a ser unicos
   db.usuarios.createIndex( { "correo": 1 }, { unique: true } )

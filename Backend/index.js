@@ -9,11 +9,16 @@ const puerto = process.env.PORT;
 const baseDeDatos = process.env.MONGODB_URI;
 
 const rutaGetUsuarios = require("./Routes/Usuario/UsuariosGetAll");
-
 const rutaGetUsuario = require("./Routes/Usuario/UsuarioGet");
 const rutaPostUsuario = require("./Routes/Usuario/UsuarioPost");
 const rutaPatchUsuario = require("./Routes/Usuario/UsuarioPatch");
 const rutaDeleteUsuario = require("./Routes/Usuario/UsuarioDelete");
+
+const rutaGetProductos = require("./Routes/Producto/ProductosGet");
+const rutaGetProducto = require("./Routes/Producto/ProductoGet");
+const rutaPostProducto = require("./Routes/Producto/ProductoPost");
+const rutaPatchProducto = require("./Routes/Producto/ProductoPatch");
+const rutaDeleteProducto = require("./Routes/Producto/ProductoDelete");
 
 
 async function conectarBD(URI){
@@ -30,7 +35,12 @@ app.use(
     rutaGetUsuario,
     rutaPostUsuario,
     rutaPatchUsuario,
-    rutaDeleteUsuario
+    rutaDeleteUsuario,
+    rutaGetProductos,
+    rutaGetProducto,
+    rutaPostProducto,
+    rutaPatchProducto,
+    rutaDeleteProducto
 );
 
 app.get("/", (req, res)=>{

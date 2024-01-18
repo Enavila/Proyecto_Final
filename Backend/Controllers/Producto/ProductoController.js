@@ -19,7 +19,6 @@ exports.ObtenerProducto = async (req,res)=>{
 
     try {
         const producto = await Producto.findById(id);
-
         if (producto) {
             res.status(200).json(producto)
         } else {
