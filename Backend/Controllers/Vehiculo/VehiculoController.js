@@ -1,5 +1,5 @@
-// Importamos el modelo de "Estudiantes" para interactuar con la base de datos
-const Vehiculo = require("../../Models/Vehiculo/Vehiculo");
+const Vehiculo = require("../../Models/Vehiculo/VehiculoModel");
+const {mensajeErrorFoto, mensajeErrorPrecio, mensajeErrorMarca, mensajeErrorModelo, mensajeErrorAnio, mensajeErrorColor, mensajeErrorTipoCarroceria, mensajeErrorTipoMotor, mensajeErrorCilindraje, mensajeErrorPotenciaHP, mensajeErrorTransmision, mensajeErrorTraccion, mensajeErrorNumeroPuertas, mensajeErrorCapacidadPasajeros, mensajeErrorKilometraje, mensajeErrorSistemaDeFrenos, mensajeErrorBolsasDeAire, mensajeErrorPantallaTactil, mensajeErrorNavegacionGPS, mensajeErrorBluetooth, mensajeErrorAireAcondicionado, mensajeErrorTipoDeAsientos, mensajeErrorLongitudMM, mensajeErrorAnchoMM, mensajeErrorAlturaMM, mensajeErrorPesoKG, mensajeErrorConsumoCiudad, mensajeErrorConsumoCarretera} = require ("../../Components/Regex");
 
 
 // TODOS LOS Vehiculos
@@ -16,7 +16,6 @@ exports.ObtenerVehiculos = async (req,res)=>{
 // UN Vehiculo POR SU ID
 exports.ObtenerVehiculo = async (req,res)=>{
     const id = req.params.id;
-
     try {
         const vehiculo = await Vehiculo.findById(id);
         if (vehiculo) {
@@ -36,15 +35,95 @@ exports.ObtenerVehiculo = async (req,res)=>{
 // REGISTRO DE Vehiculo
 exports.RegistrarVehiculo = async (req,res)=>{
     try{
-        // Se extraen los datos del cuerpo de la solicitud.
         const datosDelBody = req.body;
-        // Se crea un nuevo estudiante.
         const nuevoVehiculo = new Vehiculo(datosDelBody);
-        // Se guarda el nuevo estudiante en la BD.
+        if (!nuevoVehiculo.validarFoto()) {
+            throw new Error(`${mensajeErrorFoto}`);
+        }
+        if (!nuevoVehiculo.validarPrecio()) {
+            throw new Error(`${mensajeErrorPrecio}`);
+        }
+        if (!nuevoVehiculo.validarMarca()) {
+            throw new Error(`${mensajeErrorMarca}`);
+        }
+        if (!nuevoVehiculo.validarModelo()) {
+            throw new Error(`${mensajeErrorModelo}`);
+        }
+        if (!nuevoVehiculo.validarAnio()) {
+            throw new Error(`${mensajeErrorAnio}`);
+        }
+        if (!nuevoVehiculo.validarColor()) {
+            throw new Error(`${mensajeErrorColor}`);
+        }
+        if (!nuevoVehiculo.validarTipoCarroceria()) {
+            throw new Error(`${mensajeErrorTipoCarroceria}`);
+        }
+        if (!nuevoVehiculo.validarTipoMotor()) {
+            throw new Error(`${mensajeErrorTipoMotor}`);
+        }
+        if (!nuevoVehiculo.validarCilindraje()) {
+            throw new Error(`${mensajeErrorCilindraje}`);
+        }
+        if (!nuevoVehiculo.validarPotenciaHP()) {
+            throw new Error(`${mensajeErrorPotenciaHP}`);
+        }
+        if (!nuevoVehiculo.validarTransmision()) {
+            throw new Error(`${mensajeErrorTransmision}`);
+        }
+        if (!nuevoVehiculo.validarTraccion()) {
+            throw new Error(`${mensajeErrorTraccion}`);
+        }
+        if (!nuevoVehiculo.validarNumeroPuertas()) {
+            throw new Error(`${mensajeErrorNumeroPuertas}`);
+        }
+        if (!nuevoVehiculo.validarCapacidadPasajeros()) {
+            throw new Error(`${mensajeErrorCapacidadPasajeros}`);
+        }
+        if (!nuevoVehiculo.validarKilometraje()) {
+            throw new Error(`${mensajeErrorKilometraje}`);
+        }
+        if (!nuevoVehiculo.validarSistemaDeFrenos()) {
+            throw new Error(`${mensajeErrorSistemaDeFrenos}`);
+        }
+        if (!nuevoVehiculo.validarBolsasDeAire()) {
+            throw new Error(`${mensajeErrorBolsasDeAire}`);
+        }
+        if (!nuevoVehiculo.validarPantallaTactil()) {
+            throw new Error(`${mensajeErrorPantallaTactil}`);
+        }
+        if (!nuevoVehiculo.validarNavegacionGPS()) {
+            throw new Error(`${mensajeErrorNavegacionGPS}`);
+        }
+        if (!nuevoVehiculo.validarBluetooth()) {
+            throw new Error(`${mensajeErrorBluetooth}`);
+        }
+        if (!nuevoVehiculo.validarAireAcondicionado()) {
+            throw new Error(`${mensajeErrorAireAcondicionado}`);
+        }
+        if (!nuevoVehiculo.validarTipoDeAsientos()) {
+            throw new Error(`${mensajeErrorTipoDeAsientos}`);
+        }
+        if (!nuevoVehiculo.validarLongitudMM()) {
+            throw new Error(`${mensajeErrorLongitudMM}`);
+        }
+        if (!nuevoVehiculo.validarAnchoMM()) {
+            throw new Error(`${mensajeErrorAnchoMM}`);
+        }
+        if (!nuevoVehiculo.validarAlturaMM()) {
+            throw new Error(`${mensajeErrorAlturaMM}`);
+        }
+        if (!nuevoVehiculo.validarPesoKG()) {
+            throw new Error(`${mensajeErrorPesoKG}`);
+        }
+        if (!nuevoVehiculo.validarConsumoCiudad()) {
+            throw new Error(`${mensajeErrorConsumoCiudad}`);
+        }
+        if (!nuevoVehiculo.validarConsumoCarretera()) {
+            throw new Error(`${mensajeErrorConsumoCarretera}`);
+        }
         await nuevoVehiculo.save();
-        // Se responde con el objeto insertado y un codigo (201) que indica la creacion del registro.
         res.status(201).json({"Registrado": nuevoVehiculo});
-        // console.log("se registro un vehiculo")
+        console.log("Vehiculo registrado con exito");
     }catch(error){
         res.status(500).send("Error al insertar el vehiculo");
         console.log(error);
