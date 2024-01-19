@@ -117,9 +117,7 @@ const vehiculoEsquema = new mongoose.Schema({
             type: Number,
         }
     },
-
 });
-
 
 const Vehiculo = mongoose.model("vehiculos", vehiculoEsquema);
 

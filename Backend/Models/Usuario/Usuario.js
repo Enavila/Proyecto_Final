@@ -45,7 +45,6 @@ const usuarioEsquema = new mongoose.Schema({
     },
 });
 
-// Método para validar el nombre con una expresión regular sencilla
 usuarioEsquema.methods.validarNombre = function() {
     const expresionRegularNombre = /^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]{1,}(?:[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]{0,}[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ]){0,4}$/;
     return expresionRegularNombre.test(this.nombre);
@@ -80,6 +79,12 @@ usuarioEsquema.methods.validarContraseña = function() {
     const expresionRegularContraseña = /^[a-zA-Z0-9*_.\-()]+$/;
     return expresionRegularContraseña.test(this.contraseña);
 }
+
+usuarioEsquema.methods.validarFoto = function() {
+    const expresionRegularFoto = /^https?:\/\/(?:www\.)?[a-zA-Z0-9-]+(?:\.[a-zA-Z]{2,})+(?:\/[^\s]*)?$/;
+    return expresionRegularFoto.test(this.foto);
+}
+
 
 
 const Usuario = mongoose.model("usuarios", usuarioEsquema);

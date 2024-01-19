@@ -55,6 +55,9 @@ exports.RegistrarUsuario = async (req,res)=>{
         if (!nuevoUsuario.validarContraseña()) {
             throw new Error("La contraseña es incorrecta, se permiten solo letras minusculas y mayusculas, numeros y solo los caracteres especiales * _ . - ( ) sin espacios");
         }
+        if (!nuevoUsuario.validarFoto()) {
+            throw new Error("El URL es incorrecto");
+        }
         await nuevoUsuario.save();
         res.status(201).json({"Registrado": nuevoUsuario});
         console.log("se registro un estudiante")
