@@ -7,6 +7,7 @@ const regexPais = /^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]{1,}(?:[a-zA-Záéíó
 const regexCorreo = /^[a-zA-Z0-9_.]+@[a-zA-Z0-9_.-]+\.[a-zA-Z]{2,6}$/;
 const regexContrasena = /^[a-zA-Z0-9*_.\-()]{1,}$/;
 const regexFoto = /^https?:\/\/(?:www\.)?[a-zA-Z0-9-]+(?:\.[a-zA-Z]{2,})+(?:\/[^\s]*)?$/;
+const regexID = /^[a-z0-9]{1,}$/;
 
 const mensajeErrorNombre = "El nombre es incorrecto, se permiten solo letras, acentos, hasta 4 espacios";
 const mensajeErrorApellido = "El Apellido es incorrecto, se permiten solo letras, acentos y hasta 4 espacios";
@@ -16,6 +17,7 @@ const mensajeErrorPais = "El pais es incorrecto, se permiten solo letras, acento
 const mensajeErrorCorreo = "El correo es incorrecto, ingrese un correo de tipo nombre@dominio.extension";
 const mensajeErrorContrasena = "La contraseña es incorrecta, se permiten solo letras minusculas y mayusculas, numeros y solo los caracteres especiales * _ . - ( ) sin espacios";
 const mensajeErrorFoto = "El URL de la foto para el usuario es incorrecto";
+const mensajeErrorID = "El ID es incorrecto, se permiten solo letras de la a a la z y numeros del 0 al 9";
 
 const regexPrecio = /^[0-9]{1,}$/;
 const regexMarca = /^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]{1,}(?:[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]{0,}[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ]){0,4}$/;
@@ -85,6 +87,7 @@ module.exports = {
     regexCorreo,
     regexContrasena,
     regexFoto,
+    regexID,
     mensajeErrorNombre,
     mensajeErrorApellido,
     mensajeErrorEdad,
@@ -93,6 +96,7 @@ module.exports = {
     mensajeErrorCorreo,
     mensajeErrorContrasena,
     mensajeErrorFoto,
+    mensajeErrorID,
     regexPrecio,
     regexMarca,
     regexModelo,

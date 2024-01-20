@@ -1,40 +1,124 @@
-const {regexNombre, regexApellido, regexEdad, regexCiudad, regexPais, regexCorreo, regexContrasena} = require ("./Regex");
+const {regexNombre, regexApellido, regexEdad, regexCiudad, regexPais, regexCorreo, regexContrasena, regexFoto} = require ("./Regex");
+const {mensajeErrorNombre, mensajeErrorApellido, mensajeErrorEdad, mensajeErrorCiudad, mensajeErrorPais, mensajeErrorCorreo, mensajeErrorContrasena, mensajeErrorFoto} = require("./Regex");
+
+
+function FuncionValidarRegistroUsuario (datosUsuario){
+    FuncionValidarNombre(datosUsuario.nombre);
+    FuncionValidarApellido(datosUsuario.apellido);
+    FuncionValidarEdad(datosUsuario.edad);
+    FuncionValidarCiudad(datosUsuario.ciudad);
+    FuncionValidarPais(datosUsuario.pais);
+    FuncionValidarCorreo(datosUsuario.correo);
+    FuncionValidarContrasena(datosUsuario.contrasena);
+    FuncionValidarFoto(datosUsuario.foto);
+    return true;
+}
+
+FuncionValidarActualizacionUsuario = (nuevosDatos) => {
+    if (nuevosDatos.nombre){
+        FuncionValidarNombre(nuevosDatos.nombre);
+    }
+
+    if (nuevosDatos.apellido){
+        FuncionValidarApellido(nuevosDatos.apellido);
+    }
+
+    if (nuevosDatos.edad){
+        FuncionValidarEdad(nuevosDatos.edad);
+    }
+
+    if (nuevosDatos.ciudad){
+        FuncionValidarCiudad
+    }
+
+    if (nuevosDatos.pais){
+        FuncionValidarPais(nuevosDatos.pais);
+    }
+
+    if (nuevosDatos.correo){
+        FuncionValidarCorreo(nuevosDatos.correo);
+    }
+
+    if (nuevosDatos.contrasena){
+        FuncionValidarContrasena(nuevosDatos.contrasena);
+    }
+
+    if (nuevosDatos.foto){
+        FuncionValidarFoto(nuevosDatos.foto);
+    }
+}
 
 function FuncionValidarNombre(nombre) {
-    return regexNombre.test(nombre);
+    if (!regexNombre.test(nombre)) {
+        throw new Error(`${mensajeErrorNombre}`);
+    } else {
+        return true;
+    }
+    
 }
 
 function FuncionValidarApellido(apellido) {
-    return regexApellido.test(apellido);
+    if (!regexApellido.test(apellido)) {
+        throw new Error(`${mensajeErrorApellido}`);
+    } else {
+        return true;
+    }
 }
 
 function FuncionValidarEdad(edad) {
-    return regexEdad.test(edad);
+    if (!regexEdad.test(edad)) {
+        throw new Error(`${mensajeErrorEdad}`);
+    } else {
+        return true;
+    }
 }
 
 function FuncionValidarCiudad(ciudad) {
-    return regexCiudad.test(ciudad);
+    if (!regexCiudad.test(ciudad)) {
+        throw new Error(`${mensajeErrorCiudad}`);
+    } else {
+        return true;
+    }
 }
 
 function FuncionValidarPais(pais) {
-    return regexPais.test(pais);
+    if (!regexPais.test(pais)) {
+        throw new Error(`${mensajeErrorPais}`);
+    } else {
+        return true;
+    }
 }
 
 function FuncionValidarCorreo(correo) {
-    return regexCorreo.test(correo);
+    if (!regexCorreo.test(correo)) {
+        throw new Error(`${mensajeErrorCorreo}`);
+    } else {
+        return true;
+    }
 }
 
 function FuncionValidarContrasena(contrasena) {
-    return regexContrasena.test(contrasena);
+    if (!regexContrasena.test(contrasena)) {
+        throw new Error(`${mensajeErrorContrasena}`);
+    } else {
+        return true;
+    }
 }
 
 function FuncionValidarFoto(foto) {
-    return regexFoto.test(foto);
+    if (!regexFoto.test(foto)) {
+        throw new Error(`${mensajeErrorFoto}`);
+    } else {
+        return true;
+    }
 }
+
 
 
 
 module.exports = {
+    FuncionValidarRegistroUsuario,
+    FuncionValidarActualizacionUsuario,
     FuncionValidarNombre,
     FuncionValidarApellido,
     FuncionValidarEdad,

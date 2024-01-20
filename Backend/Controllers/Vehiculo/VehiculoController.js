@@ -1,11 +1,11 @@
 const Vehiculo = require("../../Models/Vehiculo/VehiculoModel");
-const {mensajeErrorFoto, mensajeErrorPrecio, mensajeErrorMarca, mensajeErrorModelo, mensajeErrorAnio, mensajeErrorColor, mensajeErrorTipoCarroceria, mensajeErrorTipoMotor, mensajeErrorCilindraje, mensajeErrorPotenciaHP, mensajeErrorTransmision, mensajeErrorTraccion, mensajeErrorNumeroPuertas, mensajeErrorCapacidadPasajeros, mensajeErrorKilometraje, mensajeErrorSistemaDeFrenos, mensajeErrorBolsasDeAire, mensajeErrorPantallaTactil, mensajeErrorNavegacionGPS, mensajeErrorBluetooth, mensajeErrorAireAcondicionado, mensajeErrorTipoDeAsientos, mensajeErrorLongitudMM, mensajeErrorAnchoMM, mensajeErrorAlturaMM, mensajeErrorPesoKG, mensajeErrorConsumoCiudad, mensajeErrorConsumoCarretera} = require ("../../Components/Regex");
+const {mensajeErrorFoto, mensajeErrorID, mensajeErrorPrecio, mensajeErrorMarca, mensajeErrorModelo, mensajeErrorAnio, mensajeErrorColor, mensajeErrorTipoCarroceria, mensajeErrorTipoMotor, mensajeErrorCilindraje, mensajeErrorPotenciaHP, mensajeErrorTransmision, mensajeErrorTraccion, mensajeErrorNumeroPuertas, mensajeErrorCapacidadPasajeros, mensajeErrorKilometraje, mensajeErrorSistemaDeFrenos, mensajeErrorBolsasDeAire, mensajeErrorPantallaTactil, mensajeErrorNavegacionGPS, mensajeErrorBluetooth, mensajeErrorAireAcondicionado, mensajeErrorTipoDeAsientos, mensajeErrorLongitudMM, mensajeErrorAnchoMM, mensajeErrorAlturaMM, mensajeErrorPesoKG, mensajeErrorConsumoCiudad, mensajeErrorConsumoCarretera} = require ("../../Components/Regex");
+const { FuncionValidarRegistroVehiculo, FuncionValidarActualizacionVehiculo, FuncionValidarFoto, FuncionValidarPrecio, FuncionValidarMarca, FuncionValidarModelo, FuncionValidarAnio, FuncionValidarColor, FuncionValidarTipoCarroceria, FuncionValidarTipoMotor, FuncionValidarCilindraje, FuncionValidarPotenciaHP, FuncionValidarTransmision, FuncionValidarTraccion, FuncionValidarNumeroPuertas, FuncionValidarCapacidadPasajeros, FuncionValidarKilometraje, FuncionValidarSistemaDeFrenos, FuncionValidarBolsasDeAire, FuncionValidarPantallaTactil, FuncionValidarNavegacionGPS, FuncionValidarBluetooth, FuncionValidarAireAcondicionado, FuncionValidarTipoDeAsientos, FuncionValidarLongitudMM, FuncionValidarAnchoMM, FuncionValidarAlturaMM, FuncionValidarPesoKG, FuncionValidarConsumoCiudad, FuncionValidarConsumoCarretera } = require("../../Components/FuncionValidacionVehiculo");
 
 
 // TODOS LOS Vehiculos
 exports.ObtenerVehiculos = async (req,res)=>{
     const vehiculos = await Vehiculo.find();
-
     vehiculos.length > 0 
         ? res.status(200).json(vehiculos) 
         : res.status(404).send("No hay vehiculos ");
@@ -37,93 +37,11 @@ exports.RegistrarVehiculo = async (req,res)=>{
     try{
         const datosDelBody = req.body;
         const nuevoVehiculo = new Vehiculo(datosDelBody);
-        if (!nuevoVehiculo.validarFoto()) {
-            throw new Error(`${mensajeErrorFoto}`);
+        if (FuncionValidarRegistroVehiculo(nuevoVehiculo)) {
+            await nuevoVehiculo.save();
+            res.status(201).json({"Registrado": nuevoVehiculo});
+            console.log("Vehiculo registrado con exito");
         }
-        if (!nuevoVehiculo.validarPrecio()) {
-            throw new Error(`${mensajeErrorPrecio}`);
-        }
-        if (!nuevoVehiculo.validarMarca()) {
-            throw new Error(`${mensajeErrorMarca}`);
-        }
-        if (!nuevoVehiculo.validarModelo()) {
-            throw new Error(`${mensajeErrorModelo}`);
-        }
-        if (!nuevoVehiculo.validarAnio()) {
-            throw new Error(`${mensajeErrorAnio}`);
-        }
-        if (!nuevoVehiculo.validarColor()) {
-            throw new Error(`${mensajeErrorColor}`);
-        }
-        if (!nuevoVehiculo.validarTipoCarroceria()) {
-            throw new Error(`${mensajeErrorTipoCarroceria}`);
-        }
-        if (!nuevoVehiculo.validarTipoMotor()) {
-            throw new Error(`${mensajeErrorTipoMotor}`);
-        }
-        if (!nuevoVehiculo.validarCilindraje()) {
-            throw new Error(`${mensajeErrorCilindraje}`);
-        }
-        if (!nuevoVehiculo.validarPotenciaHP()) {
-            throw new Error(`${mensajeErrorPotenciaHP}`);
-        }
-        if (!nuevoVehiculo.validarTransmision()) {
-            throw new Error(`${mensajeErrorTransmision}`);
-        }
-        if (!nuevoVehiculo.validarTraccion()) {
-            throw new Error(`${mensajeErrorTraccion}`);
-        }
-        if (!nuevoVehiculo.validarNumeroPuertas()) {
-            throw new Error(`${mensajeErrorNumeroPuertas}`);
-        }
-        if (!nuevoVehiculo.validarCapacidadPasajeros()) {
-            throw new Error(`${mensajeErrorCapacidadPasajeros}`);
-        }
-        if (!nuevoVehiculo.validarKilometraje()) {
-            throw new Error(`${mensajeErrorKilometraje}`);
-        }
-        if (!nuevoVehiculo.validarSistemaDeFrenos()) {
-            throw new Error(`${mensajeErrorSistemaDeFrenos}`);
-        }
-        if (!nuevoVehiculo.validarBolsasDeAire()) {
-            throw new Error(`${mensajeErrorBolsasDeAire}`);
-        }
-        if (!nuevoVehiculo.validarPantallaTactil()) {
-            throw new Error(`${mensajeErrorPantallaTactil}`);
-        }
-        if (!nuevoVehiculo.validarNavegacionGPS()) {
-            throw new Error(`${mensajeErrorNavegacionGPS}`);
-        }
-        if (!nuevoVehiculo.validarBluetooth()) {
-            throw new Error(`${mensajeErrorBluetooth}`);
-        }
-        if (!nuevoVehiculo.validarAireAcondicionado()) {
-            throw new Error(`${mensajeErrorAireAcondicionado}`);
-        }
-        if (!nuevoVehiculo.validarTipoDeAsientos()) {
-            throw new Error(`${mensajeErrorTipoDeAsientos}`);
-        }
-        if (!nuevoVehiculo.validarLongitudMM()) {
-            throw new Error(`${mensajeErrorLongitudMM}`);
-        }
-        if (!nuevoVehiculo.validarAnchoMM()) {
-            throw new Error(`${mensajeErrorAnchoMM}`);
-        }
-        if (!nuevoVehiculo.validarAlturaMM()) {
-            throw new Error(`${mensajeErrorAlturaMM}`);
-        }
-        if (!nuevoVehiculo.validarPesoKG()) {
-            throw new Error(`${mensajeErrorPesoKG}`);
-        }
-        if (!nuevoVehiculo.validarConsumoCiudad()) {
-            throw new Error(`${mensajeErrorConsumoCiudad}`);
-        }
-        if (!nuevoVehiculo.validarConsumoCarretera()) {
-            throw new Error(`${mensajeErrorConsumoCarretera}`);
-        }
-        await nuevoVehiculo.save();
-        res.status(201).json({"Registrado": nuevoVehiculo});
-        console.log("Vehiculo registrado con exito");
     }catch(error){
         res.status(500).send("Error al insertar el vehiculo");
         console.log(error);
@@ -136,22 +54,25 @@ exports.RegistrarVehiculo = async (req,res)=>{
 // EDITAR Vehiculo POR ID
 exports.ActualizarVehiculoPorId = async (req,res)=>{
     try{
-        // Extraemos el parametro de la URL
-        const id = req.params.id;
-        // Extraemos los datos que se añadiran desde el cuerpo de la peticion (JSON)
         const nuevosDatos = req.body;
-
-        // Actualizamos el estudiante
-        const actualizacion = await Vehiculo.updateOne(
-            {_id: id},
-            {$set: nuevosDatos}
-        );
-
-        actualizacion.matchedCount === 1
-            ? actualizacion.modifiedCount === 1
-                ? res.status(200).json({"info":`Se actualizó el Vehiculo con el id ${req.params.id}`})  
-                : res.status(500).json({"info":`No se actualizó el Vehiculo con el id ${req.params.id}`})
-            : res.status(404).json({"info":`No se encontró el Vehiculo con el id ${req.params.id}`});
+        if (FuncionValidarActualizacionVehiculo(nuevosDatos)){
+            const id = req.params.id;
+            if (FuncionValidarID(id)){
+                const actualizacion = await Vehiculo.updateOne(
+                    {_id: id},
+                    {$set: nuevosDatos}
+                );
+                if (actualizacion.matchedCount === 1){
+                    if (actualizacion.modifiedCount === 1){
+                        res.status(200).json({"info":`Se actualizó el Vehiculo con el id ${req.params.id}`})  
+                    } else {
+                        res.status(500).json({"info":`No se actualizó el Vehiculo con el id ${req.params.id}`})
+                    }
+                } else {
+                    res.status(404).json({"info":`No se encontró el Vehiculo con el id ${req.params.id}`});
+                }
+            }
+        }
     }catch(error){
         res.status(500).send(`Error al actualizar el Vehiculo con el id ${req.params.id}`);
     }
