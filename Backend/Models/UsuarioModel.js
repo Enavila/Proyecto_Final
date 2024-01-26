@@ -50,11 +50,16 @@ const usuarioEsquema = new mongoose.Schema({
     },
     vendedor:{
         metodos_de_pago:{
-            type: Object
+            transferencia:{
+                
+            },
+            efectivo:{
+
+            },
+            cheque:{
+                
+            }
         },
-        telefono:{
-            type: String
-        }
     },
     garaje:{
         type: Array

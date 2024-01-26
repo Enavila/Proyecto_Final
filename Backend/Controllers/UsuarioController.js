@@ -6,7 +6,7 @@ const {
         FuncionValidarRegistroUsuario,
         FuncionValidarActualizacionUsuario,
         FuncionValidarCorreo
-} = require("../Components/FuncionesValidacionesusuario");
+} = require("../Components/FuncionesValidacionesUsuario");
 
 exports.ObtenerUsuarios = async (req,res)=>{
     const usuarios = await Usuario.find();

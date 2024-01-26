@@ -10,6 +10,9 @@ const {
     regexContrasena,
     regexTelefono,
     regexDocumentoIdentidad,
+    regexMetodoDePago_Banco,
+    regexMetodoDePago_NumeroCuenta,
+    regexMetodoDePago_Efectivo
 } = require ("./Regex");
 
 const {
@@ -26,6 +29,9 @@ const {
     mensajeErrorDocumentoIdentidad,
     mensajeErrorFotoFrontalRostro,
     mensajeErrorFotoDocumentoIdentidad,
+    mensajeErrorMetodoDePago_Banco,
+    mensajeErrorMetodoDePago_NumeroCuenta,
+    mensajeErrorMetodoDePago_Efectivo
 } = require("./Regex");
 
 
@@ -38,11 +44,32 @@ function FuncionValidarRegistroUsuario (datosUsuario){
     FuncionValidarDireccion(datosUsuario.direccion);
     FuncionValidarCorreo(datosUsuario.correo);
     FuncionValidarContrasena(datosUsuario.contrasena);
-    // FuncionValidarTelefono(datosUsuario.telefono); // Arerglar regex Telefono
+    FuncionValidarTelefono(datosUsuario.telefono); // Arerglar regex Telefono
     FuncionValidarFotoPerfil(datosUsuario.foto_perfil);
-    // FuncionValidarDocumentoIdentidad(datosUsuario.documento_identidad); // Arreglar regex Documento Identidad
+    FuncionValidarDocumentoIdentidad(datosUsuario.documento_identidad); // Arreglar regex Documento Identidad
     FuncionValidarFotoFrontalRostro(datosUsuario.foto_frontal_rostro);
     FuncionValidarFotoDocumentoIdentidad(datosUsuario.foto_documento_identidad);
+    if (datosUsuario.vendedor){
+        if (datosUsuario.vendedor.metodos_de_pago){
+            if (datosUsuario.vendedor.metodos_de_pago.transferencia){
+                const bancos = datosUsuario.vendedor.metodos_de_pago.transferencia;
+                bancos.map((banco) => {
+                    FuncionValidarBanco(banco.nombre_banco);
+                    FuncionValidarCuentaBancaria(banco.numero_cuenta);
+                })
+            }
+            if(datosUsuario.vendedor.metodos_de_pago.cheque){
+                const cheques = datosUsuario.vendedor.metodos_de_pago.cheque;
+                cheques.map((cheque) => {
+                    FuncionValidarBanco(cheque.nombre_banco);
+                    FuncionValidarCuentaBancaria(cheque.numero_cuenta);
+                })
+            }
+            if (datosUsuario.vendedor.metodos_de_pago.efectivo){
+                FuncionValidarEfectivo(datosUsuario.vendedor.metodos_de_pago.efectivo)
+            }
+        }
+    }
     return true;
 }
 
@@ -71,20 +98,41 @@ function FuncionValidarActualizacionUsuario(nuevosDatos){
     if (nuevosDatos.contrasena){
         FuncionValidarContrasena(nuevosDatos.contrasena);
     }
-    // if (nuevosDatos.telefono){
-    //     FuncionValidarTelefono(nuevosDatos.telefono);
-    // } Arerglar regex Telefono
+    if (nuevosDatos.telefono){
+        FuncionValidarTelefono(nuevosDatos.telefono);
+    } 
     if (nuevosDatos.foto_perfil){
-        FuncionValidarFoto(nuevosDatos.foto_perfil);
+        FuncionValidarFotoPerfil(nuevosDatos.foto_perfil);
     }
-    // if (nuevosDatos.documento_identidad){
-    //     FuncionValidarDocumentoIdentidad(nuevosDatos.documento_identidad);
-    // } Arreglar regex Documento Identidad
+    if (nuevosDatos.documento_identidad){
+        FuncionValidarDocumentoIdentidad(nuevosDatos.documento_identidad);
+    }
     if (nuevosDatos.foto_frontal_rostro){
         FuncionValidarFotoFrontalRostro(nuevosDatos.foto_frontal_rostro);
     }
     if (nuevosDatos.foto_documento_identidad){
-        FuncionValidarImagenDocumentoIdentidad(nuevosDatos.foto_documento_identidad);
+        FuncionValidarFotoDocumentoIdentidad(nuevosDatos.foto_documento_identidad);
+    }
+    if (nuevosDatos.vendedor){
+        if (nuevosDatos.vendedor.metodos_de_pago){
+            if (nuevosDatos.vendedor.metodos_de_pago.transferencia){
+                const bancos = nuevosDatos.vendedor.metodos_de_pago.transferencia;
+                bancos.map((banco) => {
+                    FuncionValidarBanco(banco.nombre_banco);
+                    FuncionValidarCuentaBancaria(banco.numero_cuenta);
+                })
+            }
+            if(nuevosDatos.vendedor.metodos_de_pago.cheque){
+                const cheques = nuevosDatos.vendedor.metodos_de_pago.cheque;
+                cheques.map((cheque) => {
+                    FuncionValidarBanco(cheque.nombre_banco);
+                    FuncionValidarCuentaBancaria(cheque.numero_cuenta);
+                })
+            }
+            if (nuevosDatos.vendedor.metodos_de_pago.efectivo){
+                FuncionValidarEfectivo(nuevosDatos.vendedor.metodos_de_pago.efectivo)
+            }
+        }
     }
     return true;
 }
@@ -107,7 +155,7 @@ function FuncionValidarApellido(apellido) {
 }
 
 function FuncionValidarEdad(edad) {
-    if (regexEdad.test(edad)) {
+    if ((regexEdad.test(edad)) && edad>=18) {
         return true;
     } else {
         throw new Error(`${mensajeErrorEdad}`);
@@ -192,6 +240,30 @@ function FuncionValidarFotoDocumentoIdentidad(fotoDocumentoIdentidad) {
         return true;
     } else {
         throw new Error(`${mensajeErrorFotoDocumentoIdentidad}`);
+    }
+}
+
+function FuncionValidarBanco(banco){
+    if (regexMetodoDePago_Banco.test(banco)) {
+        return true;
+    } else {
+        throw new Error(`${mensajeErrorMetodoDePago_Banco}`);
+    }
+}
+
+function FuncionValidarCuentaBancaria(cuenta){
+    if (regexMetodoDePago_NumeroCuenta.test(cuenta)) {
+        return true;
+    } else {
+        throw new Error(`${mensajeErrorMetodoDePago_NumeroCuenta}`);
+    }
+}
+
+function FuncionValidarEfectivo(efectivo){
+    if (regexMetodoDePago_Efectivo.test(efectivo)) {
+        return true;
+    } else {
+        throw new Error(`${mensajeErrorMetodoDePago_Efectivo}`);
     }
 }
 

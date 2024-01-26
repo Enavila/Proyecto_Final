@@ -12,11 +12,11 @@ const regexCiudad = /^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]{1,}(?:[a-zA-Záéí
 const regexDireccion = /^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ#\s]{1,}(?:[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ#\s]{0,}[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ#]){0,4}$/;
 const regexCorreo = /^[a-zA-Z0-9_.]+@[a-zA-Z0-9_.-]+\.[a-zA-Z]{2,6}$/;
 const regexContrasena = /^[a-zA-Z0-9*_.#]{1,}$/;
-const regexTelefono = /^\\+\d{1,2}(-|\s)\d{1,4}(-|\s)\d{1,4}(-|\s)\d{1,4}$/;
-const regexDocumentoIdentidad = /^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]{1,}(?:[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]{0,}[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ]){0,4}$/;
-// const regexFotoFrontalRostro = /^https?:\/\/(?:www\.)?[a-zA-Z0-9-]+(?:\.[a-zA-Z]{2,})+(?:\/[^\s]*)?$/;
-// const regexFotoDocumentoIdentidad = /^https?:\/\/(?:www\.)?[a-zA-Z0-9-]+(?:\.[a-zA-Z]{2,})+(?:\/[^\s]*)?$/;
-
+const regexTelefono = /^\+\d{1,2}(-|\s)\d{1,4}(-|\s)\d{1,4}(-|\s)\d{1,4}(-|\s)\d{1,4}$/;
+const regexDocumentoIdentidad = /^[VEJP]{1}[-]\d{2,8}(.|-)\d{1,3}(.)\d{1,3}$/; // /^\+\d{1,2}(-|\s)\d{1,4}(-|\s)\d{1,4}(-|\s)\d{1,4}(-|\s)\d{1,4}$/;
+const regexMetodoDePago_Banco = /^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]{1,}(?:[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]{0,}[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ]){0,4}$/;
+const regexMetodoDePago_NumeroCuenta = /^\d{4}-\d{4}-\d{4}-\d{4}-\d{4}$/;
+const regexMetodoDePago_Efectivo = /^[SsIiÍíNnOo]{2}$/;
 
 const mensajeErrorNombre = "El nombre es incorrecto, se permiten solo letras, acentos, hasta 4 espacios";
 const mensajeErrorApellido = "El Apellido es incorrecto, se permiten solo letras, acentos y hasta 4 espacios";
@@ -31,8 +31,9 @@ const mensajeErrorFotoPerfil = "La URL de la imagen de perfil es incorrecto.";
 const mensajeErrorDocumentoIdentidad = "El documento de identidad es incorrecto, se permite solo hasta 15 números, 1 letra mayúscula y -; no se permiten espacios.";
 const mensajeErrorFotoFrontalRostro = "El URL de la foto frontal del rostro es incorrecto.";
 const mensajeErrorFotoDocumentoIdentidad = "El URL de la foto para documento de identidad es incorrecto.";
-
-
+const mensajeErrorMetodoDePago_Banco = "El nombre del banco es incorrecto, se permiten solo letras, acentos y hasta 4 espacios";
+const mensajeErrorMetodoDePago_NumeroCuenta = "El número de cuenta es incorrecto, debe respetar como máximo el formato 1234-5678-9012-3456-7890";
+const mensajeErrorMetodoDePago_Efectivo = "error en el metodo de pago efectivo";
 
 
 const regexPrecio = /^[0-9]{1,}$/;
@@ -102,8 +103,9 @@ const mensajeErrorConsumoCarretera = "El consumo en carretera es incorrecto, deb
 
 module.exports = {
     regexID,
-    regexURL,
+    mensajeErrorID,
 
+    regexURL,
 
     regexNombre,
     regexApellido,
@@ -115,7 +117,11 @@ module.exports = {
     regexContrasena,
     regexTelefono,
     regexDocumentoIdentidad,
-    mensajeErrorID,
+    regexMetodoDePago_Banco,
+    regexMetodoDePago_NumeroCuenta,
+    regexMetodoDePago_Efectivo,
+
+    
     mensajeErrorURL,
     mensajeErrorNombre,
     mensajeErrorApellido,
@@ -130,7 +136,9 @@ module.exports = {
     mensajeErrorDocumentoIdentidad,
     mensajeErrorFotoFrontalRostro,
     mensajeErrorFotoDocumentoIdentidad,
-
+    mensajeErrorMetodoDePago_Banco,
+    mensajeErrorMetodoDePago_NumeroCuenta,
+    mensajeErrorMetodoDePago_Efectivo,
 
     regexPrecio,
     regexMarca,
@@ -159,6 +167,8 @@ module.exports = {
     regexPesoKG,
     regexConsumoCiudad,
     regexConsumoCarretera,
+
+    mensajeErrorFoto,
     mensajeErrorPrecio,
     mensajeErrorMarca,
     mensajeErrorModelo,
@@ -187,6 +197,3 @@ module.exports = {
     mensajeErrorConsumoCiudad,
     mensajeErrorConsumoCarretera,
 };
-
-
-
