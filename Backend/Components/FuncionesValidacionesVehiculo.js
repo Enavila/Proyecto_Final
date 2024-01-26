@@ -32,7 +32,7 @@ const {
 
 const {
     mensajeErrorID,
-    mensajeErrorFoto,
+    mensajeErrorFotosVehiculo,
     mensajeErrorPrecio,
     mensajeErrorMarca,
     mensajeErrorModelo,
@@ -64,7 +64,10 @@ const {
 
 function FuncionValidarRegistroVehiculo(datosVehiculo){
     FuncionValidarID(datosVehiculo.idVendedor);
-    FuncionValidarFoto(datosVehiculo.foto);
+    for (let i = 0; i < datosVehiculo.fotos.length; i++){
+        FuncionValidarFoto(datosVehiculo.fotos[i]);
+    }
+    console.log(`\n\n\n\nprecio: ${datosVehiculo.precio}`);
     FuncionValidarPrecio(datosVehiculo.precio);
     FuncionValidarMarca(datosVehiculo.marca);
     FuncionValidarModelo(datosVehiculo.modelo);
@@ -253,7 +256,7 @@ function FuncionValidarFoto(foto) {
     if (regexURL.test(foto)) {
         return true;
     } else {
-        throw new Error(`${mensajeErrorFoto}`);
+        throw new Error(`${mensajeErrorFotosVehiculo}`);
     }
 }
 

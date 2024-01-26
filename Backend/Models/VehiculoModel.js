@@ -12,12 +12,12 @@ const vehiculoEsquema = new mongoose.Schema({
     idVendedor:{
         type: String
     },
-    foto: {
-        type: String,
+    fotos: {
+        type: Array,
         required: true
     },
     precio: {
-        type: Number,
+        type: String,
         required: true
     },
     marca: {
