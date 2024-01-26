@@ -46,6 +46,8 @@ const usuarioEsquema = new mongoose.Schema({
         default: "https://i.ibb.co/Qf8XFnp/unkperfil-removebg-preview.png"
     },
 
+    
+
     fecha_registro:{
         type: Date,
         default: Date.now
