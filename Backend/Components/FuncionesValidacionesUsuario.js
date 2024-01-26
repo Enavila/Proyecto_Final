@@ -1,31 +1,31 @@
 const {
-        regexURL,
-        regexNombre,
-        regexApellido,
-        regexEdad,
-        regexPais,
-        regexCiudad,
-        regexDireccion,
-        regexCorreo,
-        regexContrasena,
-        regexTelefono,
-        regexDocumentoIdentidad,
+    regexURL,
+    regexNombre,
+    regexApellido,
+    regexEdad,
+    regexPais,
+    regexCiudad,
+    regexDireccion,
+    regexCorreo,
+    regexContrasena,
+    regexTelefono,
+    regexDocumentoIdentidad,
 } = require ("./Regex");
 
 const {
-        mensajeErrorNombre,
-        mensajeErrorApellido,
-        mensajeErrorEdad,
-        mensajeErrorPais,
-        mensajeErrorCiudad,
-        mensajeErrorDireccion,
-        mensajeErrorCorreo,
-        mensajeErrorContrasena,
-        mensajeErrorTelefono,
-        mensajeErrorFotoPerfil,
-        mensajeErrorDocumentoIdentidad,
-        mensajeErrorFotoFrontalRostro,
-        mensajeErrorFotoDocumentoIdentidad,
+    mensajeErrorNombre,
+    mensajeErrorApellido,
+    mensajeErrorEdad,
+    mensajeErrorPais,
+    mensajeErrorCiudad,
+    mensajeErrorDireccion,
+    mensajeErrorCorreo,
+    mensajeErrorContrasena,
+    mensajeErrorTelefono,
+    mensajeErrorFotoPerfil,
+    mensajeErrorDocumentoIdentidad,
+    mensajeErrorFotoFrontalRostro,
+    mensajeErrorFotoDocumentoIdentidad,
 } = require("./Regex");
 
 
@@ -71,15 +71,15 @@ function FuncionValidarActualizacionUsuario(nuevosDatos){
     if (nuevosDatos.contrasena){
         FuncionValidarContrasena(nuevosDatos.contrasena);
     }
-    if (nuevosDatos.telefono){
-        FuncionValidarTelefono(nuevosDatos.telefono);
-    }
+    // if (nuevosDatos.telefono){
+    //     FuncionValidarTelefono(nuevosDatos.telefono);
+    // } Arerglar regex Telefono
     if (nuevosDatos.foto_perfil){
         FuncionValidarFoto(nuevosDatos.foto_perfil);
     }
-    if (nuevosDatos.documento_identidad){
-        FuncionValidarDocumentoIdentidad(nuevosDatos.documento_identidad);
-    }
+    // if (nuevosDatos.documento_identidad){
+    //     FuncionValidarDocumentoIdentidad(nuevosDatos.documento_identidad);
+    // } Arreglar regex Documento Identidad
     if (nuevosDatos.foto_frontal_rostro){
         FuncionValidarFotoFrontalRostro(nuevosDatos.foto_frontal_rostro);
     }
