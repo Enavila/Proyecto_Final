@@ -1,0 +1,79 @@
+/* NavBar */
+#nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.5rem;
+    background-color: #CE5630;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    color: #F1F1ED;
+}
+
+.logo h2 span{
+    color:#202022 ;
+}
+
+.buscador{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    position: relative;
+
+}
+
+.buscador input{
+    width: 20rem;
+    padding: .5rem 1.5rem;
+    border-radius: 20px;
+    border: #202022 1px solid;
+    outline: none;
+    color: #202022;
+
+}
+
+.buscador a{
+    position: absolute;
+    right: 0.02rem;
+    background-color: #CE5630;
+    padding: .1rem 1rem;
+    border-radius: 0  20px 20px 0;
+    cursor: pointer;
+    transition: all .3s;
+    border: #202022 1px solid;
+}
+#mySpan{
+    transition: all 1s;
+}
+.buscador a:hover{
+    background-color: #202022;
+    transition: all .3s;
+}
+.buscador a:hover #mySpan{
+    color: #F1F1ED;
+    transition: all .5s;
+}
+
+.buscador a span{
+    text-decoration: none;
+    color: #000;
+}
+
+.user{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+
+#fotoUser{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
