@@ -2,7 +2,8 @@ import { Vehiculos, VehiculosIndividual} from "../../Components/VehiculosViews";
 const Home = () => {
     return (
         <main>
-            Hola Chicos
+
+            <Vehiculos/>
             <VehiculosIndividual />
         </main>
     );

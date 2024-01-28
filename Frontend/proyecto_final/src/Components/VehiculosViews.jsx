@@ -709,36 +709,43 @@ const VehiculosIndividual = () =>{
 
                             </div>
                         </div>
-                        <div>
-                            <div>
-                                <div>
+                        <div class="masInfo">
+                            <div class="infoComprar">
+                                <div class="infoVehiculo">
                                     <h3>Condición: {vehiculo.condicion}</h3>
                                     <h2>{vehiculo.modelo} {vehiculo.marca} {vehiculo.anio}</h2>
                                     <p>{`${vehiculo.kilometraje} km`} | {vehiculo.transmision}</p>
                                 </div>
-                                <div>
+                                <div class="infoPrecio">
                                     <h3>Precio</h3>
                                     <span>$ {vehiculo.precio}</span>
                                     <p>El precio no incluye el IVA</p>
                                 </div>
                                 <div>
-                                    <button>Comprar</button>
+                                    <button>Contactar Vendedor</button>
                                 </div>
                             </div>
-                            <div>
+                            <div class="otrosVehiculosRelacionados">
                                 <h3>Otros {vehiculo.modelo}  </h3>
-                                <div>
+                                <div class="vehiculosRelacionados" >
                                     {
                                         otorsVehiculos.map((otro)=>(
-                                            <a href="#">
-                                                <img src={otro.img} alt={`${otro.marca} ${otro.modelo} `} />
-                                                <div>
-                                                    <span>{``}</span>
+                                            <a href="#" >
+                                                <img src={otro.img} alt={`${otro.marca} ${otro.modelo} `}  />
+                                                <div class="microInfo" >
+                                                    <span class="anioKm">{`${otro.anio} - ${otro.kilometraje} km`}</span>
+                                                    <span class="precio">$ {otro.precio}</span>
+                                                    <p class="ubicacion">
+                                                        <span class="material-symbols-outlined">
+                                                            location_on
+                                                        </span> {otro.ciudad}
+                                                    </p>
                                                 </div>
                                             </a>
                                         ))
                                     }
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -748,25 +755,3 @@ const VehiculosIndividual = () =>{
     )
 }
 export {Vehiculos, VehiculosIndividual} ;
-
-
-
-{/* <img src={vehiculo.img}  alt={`${vehiculo.marca} ${vehiculo.modelo} `} />
-                        <div>
-                            <h3>{vehiculo.modelo} - {vehiculo.marca}</h3>
-                            <p>{vehiculo.anio} | {`${vehiculo.kilometraje} km`} | {vehiculo.transmision}</p>
-                        </div>
-                        <p class="precioVehiculo">$ {vehiculo.precio}</p>
-                        <div class="footerVehiculo">
-                            <button>
-                                <span class="material-symbols-outlined">
-                                    bookmark_add
-                                </span>
-                            </button>
-                            <p>
-                                <span class="material-symbols-outlined">
-                                    location_on
-                                </span>
-                                {vehiculo.ciudad}
-                            </p>
-                        </div> */}

@@ -1,13 +1,13 @@
 import NavBar from "./NavBar"
 import Botonera from "./Botonera"
-import { AsideLesf, AsideRight } from "./Asides";
+import { AsideLeft, AsideRight } from "./Asides";
 const Header = () => {
     return (
         <header>
             <NavBar/>
             <Botonera/>
-            {/* <AsideLesf/>
-            <AsideRight/> */}
+            <AsideLeft/>
+            <AsideRight/>
         </header>
     );
 }

@@ -1,6 +1,98 @@
+import { useEffect, useState } from "react";
 import fotoEduardo from "../Media/FotoUser1.jpeg"
 
-const AsideLesf = () => {
+const AsideLeft = () => {
+    let autos=[
+        {
+            marca: "Toyota",
+            modelo: "Corolla",
+            anio: 2021,
+            color: "Blanco",
+            kilometraje: 10.000,
+            condicion: "seminuevo",
+            carroceria: "sedan",
+            transmision: "Automatica",
+            img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/2023_Toyota_Corolla_Sedan.jpg/1200px-2023_Toyota_Corolla_Sedan.jpg"
+        },
+        {
+            marca: "Ford",
+            modelo: "Corolla",
+            anio: 2023,
+            color: "Blanco",
+            kilometraje: 10.000,
+            condicion: "seminuevo",
+            carroceria: "sedan",
+            transmision: "Automatica",
+            img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/2023_Toyota_Corolla_Sedan.jpg/1200px-2023_Toyota_Corolla_Sedan.jpg"
+        }
+    ]
+    const [modelos, setModelos] = useState([]);
+    const [anio, setAnio] = useState([]);
+    const [color, setColor] = useState([]);
+    const [condicion, setCondicion] = useState([]);
+    const [carroceria, setCarroceria] = useState([]);
+    const [transmision, setTransmision] = useState([]);
+    const [marcaSelect, setMarcaSelect] = useState([]);
+    useEffect(() => {
+        setMarcaSelect(
+            autos.map((auto)=>{
+                return({
+                    value:auto.marca,
+                    name:auto.marca
+                })
+            })
+        )
+        setModelos(
+            autos.map((auto)=>{
+                return({
+                    value:auto.modelo,
+                    name:auto.modelo
+                })
+            })
+        )
+        setAnio(
+            autos.map((auto)=>{
+                return({
+                    value:auto.anio,
+                    name:auto.anio
+                })
+            })
+        )
+        setCondicion(
+            autos.map((auto)=>{
+                return({
+                    value:auto.condicion,
+                    name:auto.condicion
+                })
+            })
+        )
+        setCarroceria(
+            autos.map((auto)=>{
+                return({
+                    value:auto.carroceria,
+                    name:auto.carroceria
+                })
+            })
+        )
+        setTransmision(
+            autos.map((auto)=>{
+                return({
+                    value:auto.transmision,
+                    name:auto.transmision
+                })
+            })
+        )
+        setColor(
+            autos.map((auto)=>{
+                return({
+                    value:auto.color,
+                    name:auto.color
+                })
+            })
+        )
+    },[]);
+    console.log(modelos)
+
     let selects =[{
         nameSelect:"Marca",
         optionsSelect:[
@@ -10,16 +102,76 @@ const AsideLesf = () => {
                 selected:true,
                 hidden:true
             },
+            ...marcaSelect
+        ]},
+        {
+        nameSelect:"Modelo",
+        optionsSelect:[
             {
-                value:"toyota",
-                name:"toyota",
+                value:"Modelo",
+                name:"Modelo",
+                selected:true,
+                hidden:true
             },
+            ...modelos
+        ]},
+        {
+        nameSelect:"Anio",
+        optionsSelect:[
             {
-                value:"ford",
-                name:"ford",
-            }
-        ]
-    }]
+                value:"Anio",
+                name:"Anio",
+                selected:true,
+                hidden:true
+            },
+            ...anio
+        ]},
+        {
+        nameSelect:"Color",
+        optionsSelect:[
+            {
+                value:"Color",
+                name:"Color",
+                selected:true,
+                hidden:true
+            },
+            ...color
+        ]},
+        {
+        nameSelect:"Condicion",
+        optionsSelect:[
+            {
+                value:"Condicion",
+                name:"Condicion",
+                selected:true,
+                hidden:true
+            },
+            ...condicion
+        ]},
+        {
+        nameSelect:"Carroceria",
+        optionsSelect:[
+            {
+                value:"Carroceria",
+                name:"Carroceria",
+                selected:true,
+                hidden:true
+            },
+            ...carroceria
+        ]},
+        {
+        nameSelect:"Transmision",
+        optionsSelect:[
+            {
+                value:"Transmision",
+                name:"Transmision",
+                selected:true,
+                hidden:true
+            },
+            ...transmision
+        ]},
+    ]
+
     return (
         <aside id="asideLeft">
             <span>Filtros</span>
@@ -147,4 +299,4 @@ const AsideRight = () => {
 }
 
 
-export {AsideLesf, AsideRight} ;
+export {AsideLeft, AsideRight} ;

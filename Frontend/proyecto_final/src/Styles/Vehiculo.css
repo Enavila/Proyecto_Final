@@ -1,14 +1,13 @@
 #vehiculoIndividual{
     width: 100%;
     max-width: 82.5rem;
-    margin: auto;
+    margin: 0 auto;
     height: auto;
     display: flex;
     flex-direction: column;
-    background-color: rgba(0, 0, 0, 0.303);
+    background-color: rgba(255, 255, 255, 0.303);
     padding: .5rem 1rem;
-    border: #202022 1px solid;
-    border-radius: 10px;
+
     color: #F1F1ED;
 }
 
@@ -51,3 +50,105 @@
 
 }
 
+#vehiculoIndividual .vehiculo .masInfo{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#vehiculoIndividual .vehiculo .masInfo .infoComprar{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+#vehiculoIndividual .vehiculo .masInfo .infoComprar .infoVehiculo, #vehiculoIndividual .vehiculo .masInfo .infoComprar .infoPrecio{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+#vehiculoIndividual .vehiculo .masInfo .infoComprar .infoVehiculo h3{
+    font-size: 1.2rem;
+    margin-bottom: 0;
+}
+#vehiculoIndividual .vehiculo .masInfo .infoComprar .infoVehiculo h2{
+    font-size: 2rem;
+    margin-bottom: 0;
+}
+#vehiculoIndividual .vehiculo .masInfo .infoComprar .infoPrecio h3{
+    font-size: 1.2rem;
+    margin-bottom: 0;
+}
+#vehiculoIndividual .vehiculo .masInfo .infoComprar .infoPrecio span{
+    font-size: 2rem;
+    margin-bottom: 0;
+}
+#vehiculoIndividual .vehiculo .masInfo .infoComprar .infoPrecio p{
+    font-size: .7rem;
+}
+#vehiculoIndividual .vehiculo .masInfo .otrosVehiculosRelacionados{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+#vehiculoIndividual .vehiculo .masInfo .otrosVehiculosRelacionados h3{
+    font-size: 1.2rem;
+}
+#vehiculoIndividual .vehiculo .masInfo .otrosVehiculosRelacionados .vehiculosRelacionados{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+#vehiculoIndividual .vehiculo .masInfo .otrosVehiculosRelacionados .vehiculosRelacionados a{
+    text-decoration: none;
+    color: #F1F1ED;
+    font-size: 1rem;
+    font-weight: bold;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap:1rem ;
+    border: #202022 1px solid;
+    border-radius: 10px;
+    overflow: hidden;
+}
+#vehiculoIndividual .vehiculo .masInfo .otrosVehiculosRelacionados .vehiculosRelacionados a:hover{
+    box-shadow: #202022 0px 0px 10px;
+}
+#vehiculoIndividual .vehiculo .masInfo .otrosVehiculosRelacionados .vehiculosRelacionados a img{
+    width: 100%;
+}
+#vehiculoIndividual .vehiculo .masInfo .otrosVehiculosRelacionados .vehiculosRelacionados a .microInfo{
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+#vehiculoIndividual .vehiculo .masInfo .otrosVehiculosRelacionados .vehiculosRelacionados a .microInfo .anioKm{
+    color: #F1F1ED;
+    font-size: .8rem;
+    opacity: .5;
+    border-bottom: #F1F1ED 1px solid;
+}
+#vehiculoIndividual .vehiculo .masInfo .otrosVehiculosRelacionados .vehiculosRelacionados a .microInfo .precio{
+    font-size: 2rem;
+    margin-top: .5rem;
+}
+#vehiculoIndividual .vehiculo .masInfo .otrosVehiculosRelacionados .vehiculosRelacionados a .microInfo .ubicacion{
+    color: #F1F1ED;
+    font-size: 1rem;
+    opacity: .5;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-right: .5rem;
+}
+#vehiculoIndividual .vehiculo .masInfo .otrosVehiculosRelacionados .vehiculosRelacionados a .microInfo .ubicacion .material-symbols-outlined{
+    font-size: 1.2rem;
+}
