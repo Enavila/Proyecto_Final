@@ -1,0 +1,57 @@
+/* Botonera */
+#botonera{
+    
+    height: auto;
+    margin:auto;
+
+    display: flex;
+    align-items: center;
+    background: #CE5630;
+    padding: .5rem 2rem;
+    text-decoration: none;
+    overflow: hidden;
+    gap: 3rem;
+
+}
+#botonera .btn-23{
+    --spacing: 10em;
+    --start: 0em;
+    --end: calc(-200px );
+    animation: marquee 5s linear infinite;
+    animation-play-state: running;
+    
+    /* width: calc(200px * 14 ); */
+}
+
+.btnBotonera{
+    background-color: rgba(0, 0, 0, 0.303);
+    padding: .2rem 1.3rem;
+    border: #202022 1px solid;
+    border-radius: 20px;
+    margin: 0 .5rem;
+    color: #F1F1ED;
+    gap: 3rem;
+    text-align: center;
+}
+
+
+
+/* @-webkit-keyframes marquee {
+  0% {
+    transform: translateX(var(--start));
+  }
+
+  to {
+    transform: translateX(var(--end));
+  }
+} */
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(-200px *5.5 ));
+  }
+}

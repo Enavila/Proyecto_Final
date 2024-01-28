@@ -1,0 +1,61 @@
+#vehiculosGrid{
+    width: 90%;
+    background-color: rgba(255, 255, 255, 0.303);
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    padding: 2rem;
+    margin-top: 2rem;
+    overflow: hidden;
+}
+#vehiculosGrid .vehiculo{
+    width: 90%;
+    height: auto;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.303);
+    padding: .5rem 1rem;
+    border: #202022 1px solid;
+    border-radius: 10px;
+    color: #F1F1ED;
+}
+#vehiculosGrid .vehiculo .anclaVehiculo{
+    width: 100%;
+    height: auto;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    color: #202022;
+}
+
+#vehiculosGrid .vehiculo .anclaVehiculo img{
+    width: 100%;
+    border-radius: 10px 10px 0px 0px;
+    top: 20rem;
+    margin: .8rem 0 0  ;
+}
+#vehiculosGrid .vehiculo .anclaVehiculo h3{
+    margin: 0;
+}
+#vehiculosGrid .vehiculo .anclaVehiculo h4{
+    margin: 0;
+}
+#vehiculosGrid .vehiculo .footerVehiculo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+#vehiculosGrid .vehiculo .footerVehiculo p{
+    margin: 0;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+
+}
+#vehiculosGrid .vehiculo .anclaVehiculo .PrecioVehiculo{
+    font-size: 2rem;
+    margin: 0;
+}
