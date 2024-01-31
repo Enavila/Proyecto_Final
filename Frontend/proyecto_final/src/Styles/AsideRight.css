@@ -1,0 +1,36 @@
+#asideRight{
+    width: 15rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    border-radius: 0px 0px 0px 10px;
+    background-color: #CE5630;
+    justify-items: end;
+    position: absolute;
+    right: 0 ;
+    box-shadow: #202022 -2px 7px 10px;
+    border: #20202256 1px solid;
+    z-index: 2;
+}
+#asideRight .userData{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    height: auto;
+    padding: .5rem 1rem;
+    border-bottom: #20202254 1px solid;
+    transition: all .1s ease;
+    color: #F1F1ED;
+}
+#asideRight .userData:hover{
+    background-color: rgba(0, 0, 0, 0.078);
+    box-shadow: #202022 0px 0px 3px;
+}
+#asideRight .userData img{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+}

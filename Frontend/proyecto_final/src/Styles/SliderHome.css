@@ -1,0 +1,112 @@
+.container {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.swiperContainer {
+    overflow-x: hidden;
+    margin-top: 25px;
+    padding: 0 2rem;
+}
+
+
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.swiper-pagination-bullet {
+    background-color: black;
+    height: 10px;
+    width: 10px;
+    margin-right: 6px;
+    opacity: 0.5;
+    cursor: pointer;
+    border-radius: 100%;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: rgb(255, 162, 0);
+    opacity: 1;
+}
+
+
+
+#sliderHome{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+    padding: 2rem;
+
+}
+#sliderHome .sliderTitle{
+    color:#303030;
+    font-size: 3.5rem;
+    font-weight: bold;
+    /* background-color: rgba(255, 255, 255, 0.6);
+    border: #202022 1px solid; */
+    border-radius: 10px;
+    padding: .5rem 1rem;
+    margin: auto;
+    text-align: center;
+    
+}
+#sliderHome .vehiculo{
+    width: 90%;
+    height: auto;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.60);
+    padding: .5rem 1rem;
+    border: #202022 1px solid;
+    border-radius: 10px;
+    color: #303030;
+}
+#sliderHome .vehiculo:hover{
+    box-shadow: #202022 0px 0px 10px;
+}
+#sliderHome .vehiculo .anclaVehiculo{
+    width: 100%;
+    height: auto;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    color:#303030;
+}
+#sliderHome .vehiculo .anclaVehiculo img{
+    width: 100%;
+    border-radius: 10px 10px 0px 0px;
+    top: 20rem;
+    margin: .8rem 0 0  ;
+
+}
+#sliderHome .vehiculo .anclaVehiculo h3{
+    margin: 0;
+}
+#sliderHome .vehiculo .anclaVehiculo h4{
+    margin: 0;
+}
+#sliderHome .vehiculo .footerVehiculo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+#sliderHome .vehiculo .footerVehiculo p{
+    margin: 0;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+
+}
+#sliderHome .vehiculo .anclaVehiculo .PrecioVehiculo{
+    font-size: 2rem;
+    margin: 0;
+}

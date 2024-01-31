@@ -21,15 +21,17 @@
     border-radius: 10px;
     color: #F1F1ED;
 }
+#vehiculosGrid .vehiculo:hover{
+    box-shadow: #202022 0px 0px 10px;
+}
 #vehiculosGrid .vehiculo .anclaVehiculo{
     width: 100%;
     height: auto;
     margin: auto;
     display: flex;
     flex-direction: column;
-    color: #202022;
+    color: #F1F1ED;
 }
-
 #vehiculosGrid .vehiculo .anclaVehiculo img{
     width: 100%;
     border-radius: 10px 10px 0px 0px;

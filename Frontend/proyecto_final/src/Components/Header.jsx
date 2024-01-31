@@ -1,13 +1,15 @@
 import NavBar from "./NavBar"
 import Botonera from "./Botonera"
-import { AsideLesf, AsideRight } from "./Asides";
+import { AsideLeft, AsideRight } from "./Asides";
 const Header = () => {
     return (
-        <header>
+        <header style={{position:"fixed",width:"100%",zIndex:"2",}}>
             <NavBar/>
             <Botonera/>
-            {/* <AsideLesf/>
-            <AsideRight/> */}
+            <div style={{position:"relative",display:"flex",justifyContent:"space-between"}}>
+                
+                <AsideRight/>
+            </div>
         </header>
     );
 }

@@ -1,6 +1,101 @@
+import { useEffect, useState } from "react";
 import fotoEduardo from "../Media/FotoUser1.jpeg"
+import "../Styles/AsideRight.css";
+import "../Styles/AsideLeft.css";
+import SliderPrecio from '../Components/SliderPrecio';
 
-const AsideLesf = () => {
+const AsideLeft = () => {
+    let autos=[
+        {
+            marca: "Toyota",
+            modelo: "Corolla",
+            anio: 2021,
+            color: "Blanco",
+            kilometraje: 10.000,
+            condicion: "seminuevo",
+            carroceria: "sedan",
+            transmision: "Automatica",
+            img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/2023_Toyota_Corolla_Sedan.jpg/1200px-2023_Toyota_Corolla_Sedan.jpg"
+        },
+        {
+            marca: "Ford",
+            modelo: "Corolla",
+            anio: 2023,
+            color: "Blanco",
+            kilometraje: 10.000,
+            condicion: "seminuevo",
+            carroceria: "sedan",
+            transmision: "Automatica",
+            img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/2023_Toyota_Corolla_Sedan.jpg/1200px-2023_Toyota_Corolla_Sedan.jpg"
+        }
+    ]
+    const [modelos, setModelos] = useState([]);
+    const [anio, setAnio] = useState([]);
+    const [color, setColor] = useState([]);
+    const [condicion, setCondicion] = useState([]);
+    const [carroceria, setCarroceria] = useState([]);
+    const [transmision, setTransmision] = useState([]);
+    const [marcaSelect, setMarcaSelect] = useState([]);
+    useEffect(() => {
+        setMarcaSelect(
+            autos.map((auto)=>{
+                return({
+                    value:auto.marca,
+                    name:auto.marca
+                })
+            })
+        )
+        setModelos(
+            autos.map((auto)=>{
+                return({
+                    value:auto.modelo,
+                    name:auto.modelo
+                })
+            })
+        )
+        setAnio(
+            autos.map((auto)=>{
+                return({
+                    value:auto.anio,
+                    name:auto.anio
+                })
+            })
+        )
+        setCondicion(
+            autos.map((auto)=>{
+                return({
+                    value:auto.condicion,
+                    name:auto.condicion
+                })
+            })
+        )
+        setCarroceria(
+            autos.map((auto)=>{
+                return({
+                    value:auto.carroceria,
+                    name:auto.carroceria
+                })
+            })
+        )
+        setTransmision(
+            autos.map((auto)=>{
+                return({
+                    value:auto.transmision,
+                    name:auto.transmision
+                })
+            })
+        )
+        setColor(
+            autos.map((auto)=>{
+                return({
+                    value:auto.color,
+                    name:auto.color
+                })
+            })
+        )
+    },[]);
+    console.log(modelos)
+
     let selects =[{
         nameSelect:"Marca",
         optionsSelect:[
@@ -10,23 +105,90 @@ const AsideLesf = () => {
                 selected:true,
                 hidden:true
             },
+            ...marcaSelect
+        ]},
+        {
+        nameSelect:"Modelo",
+        optionsSelect:[
             {
-                value:"toyota",
-                name:"toyota",
+                value:"Modelo",
+                name:"Modelo",
+                selected:true,
+                hidden:true
             },
+            ...modelos
+        ]},
+        {
+        nameSelect:"Anio",
+        optionsSelect:[
             {
-                value:"ford",
-                name:"ford",
-            }
-        ]
-    }]
+                value:"Anio",
+                name:"Año",
+                selected:true,
+                hidden:true
+            },
+            ...anio
+        ]},
+        {
+        nameSelect:"Color",
+        optionsSelect:[
+            {
+                value:"Color",
+                name:"Color",
+                selected:true,
+                hidden:true
+            },
+            ...color
+        ]},
+        {
+        nameSelect:"Condicion",
+        optionsSelect:[
+            {
+                value:"Condicion",
+                name:"Condición",
+                selected:true,
+                hidden:true
+            },
+            ...condicion
+        ]},
+        {
+        nameSelect:"Carroceria",
+        optionsSelect:[
+            {
+                value:"Carroceria",
+                name:"Carrocería",
+                selected:true,
+                hidden:true
+            },
+            ...carroceria
+        ]},
+        {
+        nameSelect:"Transmision",
+        optionsSelect:[
+            {
+                value:"Transmision",
+                name:"Transmisión",
+                selected:true,
+                hidden:true
+            },
+            ...transmision
+        ]},
+    ]
+
     return (
         <aside id="asideLeft">
-            <span>Filtros</span>
+            <div className="filtrarCarros">
+                <div className="carritoContenedor">
+                    <span className="material-symbols-outlined carrito">
+                        directions_car
+                    </span>
+                </div>
+                <h3>BUSCAR EN EL INVENTARIO</h3>
+            </div>
             {
                 selects.map((select)=>{
                     return(
-                        <select name={select.nameSelect} id="">
+                        <select name={select.nameSelect} id="select">
                             {
                                 select.optionsSelect.map((option)=>{
                                     return(
@@ -38,6 +200,10 @@ const AsideLesf = () => {
                     )
                 })
             }
+            <div>
+                <SliderPrecio/>
+            </div>
+
             {/* <select name="pais">
                 <option value="pais" selected hidden>pais</option>
                 <option value="portugal" >Portugal</option>
@@ -112,8 +278,8 @@ const AsideRight = () => {
             {
                 usuarios.map((user) =>
                     (
-                        <div>
-                            <img src={user.imgPerfil} alt={user.usuario} />
+                        <div class="userData">
+                            <img src={user.imgPerfil} alt={user.usuario} style={{width:"50px", height:"50px"}} />
                             <div>
                                 <p>@{user.usuario} </p>
                                 <p>{user.rol}</p>
@@ -125,7 +291,7 @@ const AsideRight = () => {
             {
                 btnsAside.map((btn)=>
                     (
-                        <div>
+                        <div class="userData">
                             <span class={btn.classIcon}>{btn.nameIcon}</span>
                             <p>{btn.text}</p>
                         </div>
@@ -135,7 +301,7 @@ const AsideRight = () => {
             {
                 btnCerrarSesion.map((btn)=>
                     (
-                        <div>
+                        <div class="userData">
                             <span class={btn.classIcon}>{btn.nameIcon}</span>
                             <p>{btn.text}</p>
                         </div>
@@ -147,4 +313,4 @@ const AsideRight = () => {
 }
 
 
-export {AsideLesf, AsideRight} ;
+export {AsideLeft, AsideRight} ;

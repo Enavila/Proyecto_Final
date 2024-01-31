@@ -1,0 +1,64 @@
+#asideLeft{
+    width: 15rem;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 0 .5rem 0;
+    border-top: #20202254 1px solid;
+    border-radius: 0px 0px 10px 0px;
+    gap: 1rem;
+    background-color: rgb(144,60,34);
+    /* background-color: rgb(206,86,48); */
+    position: absolute;
+    left: 0;
+    box-shadow: #202022 -2px 7px 10px;
+    border: #20202256 1px solid;
+    z-index: 2;
+}
+
+#asideLeft .filtrarCarros {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    color: rgb(32,32,34);;
+    border-bottom: #20202254 1px solid;
+}
+
+#asideLeft .carritoContenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 60px;
+    color: #F1F1ED;
+    background-color: rgb(32,32,34);
+    /* border-radius: 0 50% 50% 0; */
+    border-radius: 50%;
+}
+
+#asideLeft .carrito {
+    font-size: 45px;
+}
+
+
+#select {
+    width: 70%;
+    height: 30px;
+    font-weight: 600;
+    color: rgb(32, 32, 34);
+    padding: 0 0 0 1.1rem;
+    background-color: #F1F1ED;
+    border-radius: 3px;
+    border: none;
+    outline: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23202022"><path d="M7 10l5 5 5-5z" /></svg>');
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+}
+
+

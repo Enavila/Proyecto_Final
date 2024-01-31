@@ -3,7 +3,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 1.5rem;
+    padding: 1rem 1.5rem;
     background-color: #CE5630;
 }
 
@@ -38,9 +38,10 @@
 
 .buscador a{
     position: absolute;
-    right: 0.02rem;
+    top: 0;
+    right: 0.01rem;
     background-color: #CE5630;
-    padding: .1rem 1rem;
+    padding: .14rem 1rem;
     border-radius: 0  20px 20px 0;
     cursor: pointer;
     transition: all .3s;

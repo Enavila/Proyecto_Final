@@ -1,10 +1,16 @@
 * {
   text-decoration: none;
+  box-sizing: border-box;
+  top: 0;
+  margin: 0;
+  color: #303030;
+  font-size: 15px;
+  font-family: 'Poppins', sans-serif;
 }
 body {
-  margin: 0;
-  top: 0;
-  font-size: 15px;
-  color: #F1F1ED ;
-  background-color: #202022 ;
+  background-color: #E7E7E7 ;
+
+}
+h2{
+  font-family:'Times New Roman', Times, serif ;
 }

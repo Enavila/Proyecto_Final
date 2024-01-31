@@ -4,6 +4,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 //Components
 import Header from './Components/Header';
+import Footer from './Components/Footer';
 
 //Views
 import Home from './Views/Neutro/Home';
@@ -19,6 +20,7 @@ root.render(
       {/* <Route path="/" element={} /> */}
       <Route path="/" element={<Home />} />
     </Routes>
+    <Footer />
   </BrowserRouter>
 );
 
